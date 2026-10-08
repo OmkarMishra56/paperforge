@@ -1,9 +1,4 @@
-"""Google Sheets import/export via a service account.
 
-Import: pull a column of references from a sheet researchers already maintain.
-Export: push the research dataset and the review queue back as separate tabs, so
-verification happens where the team already works.
-"""
 from __future__ import annotations
 
 import json
@@ -42,7 +37,6 @@ def read_references(service_account_json: str, sheet_url: str,
 
 def write_dataset(service_account_json: str, sheet_url: str,
                   frames: dict[str, pd.DataFrame]) -> str:
-    """Write one worksheet per frame. Existing tabs with the same name are replaced."""
     import gspread
 
     gc = _client(service_account_json)
